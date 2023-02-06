@@ -21,7 +21,7 @@ function App() {
     checkWinner();
   };
 
-  const checkWinner = (): void => {
+  const checkWinner = (): string | null => {
     const winStates: number[][] = [
       [0, 1, 2],
       [3, 4, 5],
@@ -32,6 +32,18 @@ function App() {
       [0, 4, 8],
       [2, 4, 6],
     ];
+
+    for (let i: number = 0; i < winStates.length; i++) {
+      const [a, b, c] = winStates[i];
+      if (
+        currentBoard[a] === currentBoard[b] &&
+        currentBoard[b] === currentBoard[c]
+      ) {
+        return "Winner: " + currentBoard[a];
+      }
+    }
+
+    return null;
   };
 
   return (
@@ -41,6 +53,7 @@ function App() {
         handlePlay={handlePlay}
         nextPlayer={nextPlayer}
       />
+      {checkWinner()}
     </div>
   );
 }
