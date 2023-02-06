@@ -1,9 +1,12 @@
 type SquareProps = {
   value: string;
+  onSquareClick: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-const Square = ({ value }: SquareProps) => (
-  <button className="square">{value}</button>
+const Square = ({ value, onSquareClick }: SquareProps) => (
+  <button className="square" onClick={onSquareClick}>
+    {value}
+  </button>
 );
 
 export default Square;
