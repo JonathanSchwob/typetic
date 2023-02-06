@@ -3,9 +3,10 @@ import Square from "./Square";
 type BoardProps = {
   currentBoard: string[];
   handlePlay(position: number): void;
+  nextPlayer: string;
 };
 
-const Board = ({ currentBoard, handlePlay }: BoardProps) => {
+const Board = ({ currentBoard, handlePlay, nextPlayer }: BoardProps) => {
   const handleClick = (position: number): void => {
     handlePlay(position);
   };
@@ -27,6 +28,7 @@ const Board = ({ currentBoard, handlePlay }: BoardProps) => {
         <Square value={currentBoard[7]} onSquareClick={() => handleClick(7)} />
         <Square value={currentBoard[8]} onSquareClick={() => handleClick(8)} />
       </div>
+      <div>Next Turn: {nextPlayer} </div>
     </>
   );
 };
