@@ -2,9 +2,12 @@ import { useState } from "react";
 import Board from "./Board";
 import "./App.css";
 
+type Board = null[] | ("X" | "O")[];
+type Player = "X" | "O";
+
 function App() {
-  const [currentBoard, setCurrentBoard] = useState(Array(9).fill(null));
-  const [nextPlayer, setNextPlayer] = useState("X");
+  const [currentBoard, setCurrentBoard] = useState<Board>(Array(9).fill(null));
+  const [nextPlayer, setNextPlayer] = useState<Player>("X");
 
   const handlePlay = (position: number): void => {
     if (currentBoard[position] || checkWinner() !== null) return;
