@@ -7,7 +7,7 @@ function App() {
   const [nextPlayer, setNextPlayer] = useState("X");
 
   const handlePlay = (position: number): void => {
-    if (currentBoard[position]) return;
+    if (currentBoard[position] || checkWinner() !== null) return;
     const newBoard = currentBoard.slice();
 
     if (nextPlayer === "X") {
@@ -37,7 +37,8 @@ function App() {
       const [a, b, c] = winStates[i];
       if (
         currentBoard[a] === currentBoard[b] &&
-        currentBoard[b] === currentBoard[c]
+        currentBoard[b] === currentBoard[c] &&
+        currentBoard[a] !== null
       ) {
         return "Winner: " + currentBoard[a];
       }
