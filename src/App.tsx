@@ -17,9 +17,18 @@ export type CurrentBoard = [
 ];
 
 function App() {
-  const [currentBoard, setCurrentBoard] = useState<Array<"X" | "O" | null>>(
-    Array.from({ length: 9 }, () => null)
-  );
+  const [currentBoard, setCurrentBoard] = useState<CurrentBoard>([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ]);
+
   const [nextPlayer, setNextPlayer] = useState<Player>("X");
 
   const checkWinner = (): string | null => {
@@ -52,7 +61,7 @@ function App() {
 
   const handlePlay = (position: number): void => {
     if (currentBoard[position] || winner !== null) return;
-    const newBoard = currentBoard.slice();
+    const newBoard: CurrentBoard = currentBoard.slice();
 
     if (nextPlayer === "X") {
       newBoard[position] = "X";
