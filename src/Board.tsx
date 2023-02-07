@@ -1,7 +1,8 @@
 import Square from "./Square";
+import { CurrentBoard } from "./App";
 
 type BoardProps = {
-  currentBoard: string[];
+  currentBoard: CurrentBoard;
   handlePlay(position: number): void;
   nextPlayer: string;
 };
