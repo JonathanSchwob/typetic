@@ -4,30 +4,15 @@ import "./App.css";
 
 export type Player = "X" | "O";
 export type Mark = Player | null;
-export type CurrentBoard = [
-  Mark,
-  Mark,
-  Mark,
-  Mark,
-  Mark,
-  Mark,
-  Mark,
-  Mark,
-  Mark
-];
+// prettier-ignore
+export type CurrentBoard = [ Mark, Mark, Mark, 
+                             Mark, Mark, Mark, 
+                             Mark, Mark, Mark ];
 
 function App() {
-  const [currentBoard, setCurrentBoard] = useState<CurrentBoard>([
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-  ]);
+  const [currentBoard, setCurrentBoard] = useState<CurrentBoard>(
+    Array(9).fill(null) as CurrentBoard
+  );
 
   const [nextPlayer, setNextPlayer] = useState<Player>("X");
 
