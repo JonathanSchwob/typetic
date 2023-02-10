@@ -43,8 +43,7 @@ function App() {
       [2, 4, 6],
     ];
 
-    for (let i: number = 0; i < winStates.length; i++) {
-      const [a, b, c] = winStates[i];
+    for (const [a, b, c] of winStates) {
       if (
         currentBoard[a] === currentBoard[b] &&
         currentBoard[b] === currentBoard[c] &&
