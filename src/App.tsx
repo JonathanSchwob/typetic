@@ -2,8 +2,8 @@ import { useState } from "react";
 import Board from "./Board";
 import "./App.css";
 
-export type Player = "X" | "O";
-export type Mark = Player | null;
+type Player = "X" | "O";
+type Mark = Player | null;
 // prettier-ignore
 export type CurrentBoard = [ Mark, Mark, Mark, 
                              Mark, Mark, Mark, 
