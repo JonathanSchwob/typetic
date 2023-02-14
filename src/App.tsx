@@ -9,6 +9,17 @@ export type CurrentBoard = [ Mark, Mark, Mark,
                              Mark, Mark, Mark, 
                              Mark, Mark, Mark ];
 
+const winStates: number[][] = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
 function App() {
   const [currentBoard, setCurrentBoard] = useState<CurrentBoard>(
     Array(9).fill(null) as CurrentBoard
@@ -17,17 +28,6 @@ function App() {
   const [nextPlayer, setNextPlayer] = useState<Player>("X");
 
   const checkWinner = (): string | null => {
-    const winStates: number[][] = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
     for (const [a, b, c] of winStates) {
       if (
         currentBoard[a] === currentBoard[b] &&
