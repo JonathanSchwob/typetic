@@ -45,7 +45,7 @@ function App() {
 
   const handlePlay = (position: number): void => {
     if (currentBoard[position] || winner !== null) return;
-    const newBoard: CurrentBoard = { ...currentBoard };
+    const newBoard: CurrentBoard = [...currentBoard];
 
     if (nextPlayer === "X") {
       newBoard[position] = "X";
