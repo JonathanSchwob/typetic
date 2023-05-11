@@ -38,7 +38,22 @@ function App() {
       }
     }
 
+    if (isBoardFull()) {
+      return "Its a Draw!";
+    }
+
     return null;
+  };
+
+  const isBoardFull = () => {
+    const newCurrentBoard = [...currentBoard];
+    for (let char of newCurrentBoard) {
+      if (char === null) {
+        return false;
+      }
+    }
+
+    return true;
   };
 
   const winner = checkWinner();
@@ -54,6 +69,7 @@ function App() {
       newBoard[position] = "O";
       setNextPlayer("X");
     }
+    console.log(newBoard, "hello");
     setCurrentBoard(newBoard);
   };
 
