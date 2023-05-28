@@ -1,5 +1,4 @@
 # typetic
 
-vite + react + typescript + tic tac toe 
-
-learning typescript
+tic tac toe with
+vite + react + typescript 
